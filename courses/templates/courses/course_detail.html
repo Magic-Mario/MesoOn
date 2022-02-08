@@ -8,9 +8,9 @@
 <div class="page-info-section set-bg" data-setbg="{% static 'webuni/img/page-bg/2.jpg' %}">
   <div class="container">
     <div class="site-breadcrumb">
-      <a href="/">Kryefaqe</a>
-      <span>Klasa /</span>
-      <span>Mesimi</span>
+      <a href="/">Home</a>
+      <span>Clase /</span>
+      <span>Enseñar</span>
     </div>
   </div>
 </div>
@@ -22,14 +22,14 @@
   <div class="container">
     <div class="search-warp">
       <div class="section-title text-white">
-        <h2><span>Kerko kurse</span></h2>
+        <h2><span>Buscar curso</span></h2>
       </div>
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
           <!-- search form -->
           <form method="post" action="{% url 'courses:kerko_kurs' %}" class="intro-newslatter"> {% csrf_token %}
             <input name="search" type="text" placeholder="Kerko kursin">
-            <button type="submit" class="site-btn btn-dark">Kerko kursin</button>
+            <button type="submit" class="site-btn btn-dark">Buscar cursos</button>
           </form>
         </div>
       </div>
@@ -51,7 +51,7 @@
             <div class="course-meta">
               <div class="course-author">
                 <h6>Mesuesi</h6>
-                <p>{{course.krijues|capfirst}}, <span>Mesues</span></p>
+                <p>{{course.creador|capfirst}}, <span>Mesues</span></p>
               </div>
             </div>
             <div class="course-meta">
@@ -62,7 +62,7 @@
             </div>
             <div class="course-meta">
               <div class="cm-info">
-                <h6>Pershkrimi i klases</h6>
+                <h6>Pershkrimi i clases</h6>
                 <p>{{course.pershkrimi}}</p>
               </div>
             </div>
@@ -82,7 +82,7 @@
     <div class="row">
       <div class="col-lg-10 offset-lg-1 course-list">
         <div class="cl-item" id="lessons">
-          <h4>Mesimet ne kete klase</h4>
+          <h4>Mesimet ne kete clase</h4>
           {% if course.lessons != None  %}
             {% for lesson in course.lessons %}
             <div data-aos="fade-right" >
@@ -91,7 +91,7 @@
             {% endfor %}
           {% endif %}
           {% if course.lessons|length == 0 %}
-          <div class="alert alert-danger">Nuk ka akoma asnje mesim per kete klase!</div>
+          <div class="alert alert-danger">Nuk ka akoma asnje mesim per kete clase!</div>
           {% endif %} 
         </div>
       </div>

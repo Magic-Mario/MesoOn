@@ -12,7 +12,7 @@ class Klasa(models.Model):
         return '{}'.format(self.titulli)
 
 class Lendet(models.Model):
-    krijues = models.ForeignKey(User,on_delete = models.CASCADE)
+    creador = models.ForeignKey(User,on_delete = models.CASCADE)
     slug = models.SlugField()
     titulli = models.CharField(max_length=30)
     klasa = models.ForeignKey(Klasa,on_delete=models.CASCADE)

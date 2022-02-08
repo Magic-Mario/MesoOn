@@ -44,29 +44,29 @@
 		  <div class="collapse navbar-collapse" id="navbarResponsive">
 			<ul class="navbar-nav ml-auto">
 			  <li class="nav-item mx-0 mx-lg-1">
-				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:home' %}">Kryefaqe</a>
+				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:home' %}">Home</a>
 			  </li>
 			  <li class="nav-item mx-0 mx-lg-1">
 				<li class="nav-item mx-0 mx-lg-1">
-					<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#kurset">Kurse</a>
+					<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="/#kurset">Cursos</a>
 				  </li>
 			  </li>
 			  {% if request.user.profile.is_teacher == True %}
 			  <li class="nav-item mx-0 mx-lg-1">
-				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:krijo_klase' %}">Krijo Klase</a>
+				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:crear_clase' %}">crear clase</a>
 			  </li>
 			  <li class="nav-item mx-0 mx-lg-1">
-				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:krijo_lende' %}">Krijo Lende</a>
+				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:crear_lende' %}">crear Tema</a>
 			  </li>
 			  <li class="nav-item mx-0 mx-lg-1">
-				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:krijo_mesim' %}">Krijo Mesim</a>
+				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:crear_mesim' %}">crear Clase</a>
 			  </li>
 			  {% else %}
 			  <li class="nav-item mx-0 mx-lg-1">
-				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:contact' %}">Kontakt</a>
+				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:contact' %}">Contact Us</a>
 			  </li>
 			  <li class="nav-item mx-0 mx-lg-1">
-				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:about' %}">Rreth</a>
+				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'courses:about' %}">About Us</a>
 			  </li>
 			  <li class="nav-item mx-0 mx-lg-1">
 				<a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'blogs:post_list' %}">Blog</a>
@@ -80,16 +80,16 @@
 				</a>
 			  
 				<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-				  <a class="dropdown-item" href="{% url 'users:profile' %}">Profili</a>
-				  <a class="dropdown-item" href="{% url 'account_logout' %}">Dil</a>
+				  <a class="dropdown-item" href="{% url 'users:profile' %}">Perfil</a>
+				  <a class="dropdown-item" href="{% url 'account_logout' %}">Desconectar</a>
 				</div>
 			  </div>
 			  {% else %}
 			  <li class="nav-item mx-0 mx-lg-1">
-				<a class="active nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'account_login' %}">Hyr</a>
+				<a class="active nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'account_login' %}">Conectar</a>
 			  </li>
 			  <li class="nav-item mx-0 mx-lg-1">
-				<a class="active nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'account_signup' %}">Regjistrohu</a>
+				<a class="active nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="{% url 'account_signup' %}">Registrarse</a>
 			  </li>
               {% endif %}
 			</ul>
@@ -108,11 +108,12 @@
 	<section class="banner-section spad">
 		<div class="container">
 			<div class="section-title mb-0 pb-2">
-				<h2>Bashkohu me komunitetin tone!</h2>
-				<p>Meso online leksione dhe mesime shkollore falas me ane te videove dhe komunikimit me mesues dhe pjestare e tjere te MesoOn. Eshte shume e thjeshte, gjeja e vetme qe ju duhet te beni eshte te Regjistroheni. Kliko me posht: </p>
+				<h2>¡Únete a nuestra comunidad!</h2>
+				<p>Aprenda lecciones gratuitas en línea y lecciones escolares a través de videos y comunicación con maestros y
+					 otros miembros de MesoOn. Es muy sencillo, lo único que tienes que hacer es Registrarte. Haga click abajo: </p>
 			</div>
 			<div class="text-center pt-5">
-				<a href="{% url 'account_signup' %}" class="site-btn">Regjistrohuni tani</a>
+				<a href="{% url 'account_signup' %}" class="site-btn">Regístrate ahora</a>
 			</div>
 		</div>
 	</section>
@@ -126,50 +127,50 @@
 			<div class="footer-warp">
 				<div class="row">
 					<div class="widget-item">
-						<h4>Informacione e Kontaktit</h4>
+						<h4>Información del contacto</h4>
 						<ul class="contact-list">
-							<li>Albania <br>Mamurras</li>
-							<li>+355 69 2131 544</li>
-							<li>redi.dev@hotmail.com</li>
+							<li>Pais <br>Ciudad</li>
+							<li>Telefono</li>
+							<li>Correo</li>
 						</ul>
 					</div>
 					<div class="widget-item">
-						<h4>Klasa</h4>
+						<h4>Clase</h4>
 						<ul>
-							<li><a href="">Matematike</a></li>
-							<li><a href="">Letersi & Gjuhe Shqipe</a></li>
-							<li><a href="">Kimi</a></li>
-							<li><a href="">Biologji</a></li>
-							<li><a href="">Programmim, etj</a></li>
+							<li><a href="">Matematicas</a></li>
+							<li><a href="">Lengua y literatura </a></li>
+							<li><a href="">Quimica</a></li>
+							<li><a href="">Biologia </a></li>
+							<li><a href="">Programacion</a></li>
 						</ul>
 					</div>
 					<div class="widget-item">
-						<h4>Staffi</h4>
+						<h4>Staff</h4>
 						<ul>
-							<li><a href="">Mesuesit</a></li>
-							<li><a href="">Cmime</a></li>
-							<li><a href="">Nxenesit me te mire</a></li>
-							<li><a href="">Blogu</a></li>
+							<li><a href="">Profesores</a></li>
+							<li><a href="">premios</a></li>
+							<li><a href="">los mejores estudiantes</a></li>
+							<li><a href="">Blog</a></li>
 							
 						</ul>
 					</div>
 					<div class="widget-item">
-						<h4>Rrjete Sociale</h4>
+						<h4>Redes sociales</h4>
 						<ul>
 							<li><a href="">YouTube</a></li>
 							<li><a href="">Facebook</a></li>
 							<li><a href="">Instagram</a></li>
 							<li><a href="">Twitter</a></li>
-							<li><a href="">Linked In</a></li>
+							<li><a href="">LinkedIn</a></li>
 					
 						</ul>
 					</div>
 					<div class="widget-item">
-						<h4>Lajmet e fundit</h4>
+						<h4>últimas noticias</h4>
 						<form class="footer-newslatter">
 							<input type="email" placeholder="E-mail">
-							<button class="site-btn">Abonohu</button>
-							<p>*Merr lajmet e fundit duke u abonuar</p>
+							<button class="site-btn">Suscribir</button>
+							<p>*Recibe las últimas noticias suscribiéndote</p>
 						</form>
 					</div>
 				</div>

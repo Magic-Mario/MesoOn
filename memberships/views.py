@@ -20,8 +20,7 @@ def get_user_membership(request):
 def get_user_subscription(request):
     user_subscription_qs = Subscription.objects.filter(user_membership = get_user_membership(request))
     if user_subscription_qs.exists():
-        user_subscription = user_subscription_qs.first()
-        return user_subscription
+        return user_subscription_qs.first()
     return None
 
 def get_selected_membership(request):
@@ -55,9 +54,11 @@ class MembershipSelectView(ListView):
         """
         Validation to check if user memberships == selected_membership
         """
-        if user_membership.membership == selected_membership:
-            if user_subscription != None:
-                messages.info(request, 'The selected membership is your current Memberships, your next payment would be due by {}'.format('get this value from stripe'))
+        if (user_membership.membership == selected_membership and
+            user_subscription != None):
+                messages.info(request,
+                              'The selected membership is your current Memberships, your next payment would be due by {}'
+                              .format('get this value from stripe'))
                 return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
         # PASS THE SELECTED_MEMBERSHIP INTO THE SESSION TO BE ABLE TO PAS IT INTO THE NEXT VIEWW
         request.session['selected_membership_type'] = selected_membership.membership_type

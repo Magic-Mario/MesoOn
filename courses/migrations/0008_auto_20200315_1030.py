@@ -23,7 +23,7 @@ class Migration(migrations.Migration):
                 ('krijuar_me', models.DateTimeField(auto_now=True)),
                 ('imazhi_lendes', models.ImageField(default='default.jpg', upload_to='kurs_images')),
                 ('klasa', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='courses.Klasa')),
-                ('krijues', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
+                ('creador', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
         ),
         migrations.AlterField(

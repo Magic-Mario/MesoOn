@@ -9,25 +9,25 @@ class KlasaForm(forms.ModelForm):
         model = Klasa
         fields = '__all__'
         help_texts = {
-            'titulli': 'Psh. Klasa 11 ose Klasa e Informatikes',
-            'pershkrimi':'Vendos nje pershkrim te shkurte te klases',
-            'imazhi':'Mund te vendosesh nje fotografi e klases ose mund te lihet bosh'
+            'titulli': 'Ex. Clase 11 o Clase de Informática',
+            'pershkrimi':'Pon una breve descripción de la clase.',
+            'imazhi':'Puedes poner una foto de la clase o se puede dejar en blanco'
         }
 
 class LendaForm(forms.ModelForm):
     class Meta:
         model = Lendet
-        fields = ['krijues','slug', 'titulli', 'klasa', 'pershkrimi', 'imazhi_lendes']
+        fields = ['creador','slug', 'titulli', 'klasa', 'pershkrimi', 'imazhi_lendes']
         help_texts = {
-            'titulli': 'Psh. Matematika, Gjeografi etj',
-            'pershkrimi':'Vendos nje pershkrim te shkurte te lendes',
-            'klasa':'Zhgjidhni klasen per te cilen do te krijoni lenden',
-            'imazhi_lendes':'Mund te vendosesh nje fotografi e lendes ose mund te lihet bosh'
+            'titulli': 'Ex. Matemáticas, Geografía, etc.',
+            'pershkrimi':'Proporcione una breve descripción del tema.',
+            'klasa':'Selecciona la clase para la que crearás la asignatura',
+            'imazhi_lendes':'Puedes poner una foto del tema o se puede dejar en blanco'
         }
         labels = {
-            'titulli':'Titulli i lendes'
+            'titulli':'Título del tema'
         }
-        widgets = {'krijues': forms.HiddenInput(), 'slug': forms.HiddenInput()}
+        widgets = {'creador': forms.HiddenInput(), 'slug': forms.HiddenInput()}
 
 
 class MesimiForm(forms.ModelForm):

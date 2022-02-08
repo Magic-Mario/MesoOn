@@ -87,15 +87,25 @@ AUTHENTICATION_BACKENDS = (
 
 WSGI_APPLICATION = 'Coursera.wsgi.application'
 
+INTERNAL_IPS = [
+    # ...
+    '127.0.0.1',
+    # ...
+]
+
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+          'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'course_project', 
+        'USER': 'postgres', 
+        'PASSWORD': 'Mariomh1192',
+        'HOST': 'localhost',
+        'PORT': '5432',
+   }
 }
 
 
@@ -186,9 +196,7 @@ EMAIL_HOST_PASSWORD='put your email password here'
 EMAIL_PORT = 587 
 
 
-if DEBUG:
+if DEBUG := True:
     STRIPE_PUBLISHABLE_KEY = 'pk_test_LI02rx6BCdiFgRYQbCaU28o0'
     STRIPE_SECRET_KEY = 'sk_test_FL1E1hwRQeavTXT99MzMCsDc'
-else:
-    STRIPE_PUBLISHABLE_KEY = 'pk_test_LI02rx6BCdiFgRYQbCaU28o0'
-    STRIPE_SECRET_KEY = 'sk_test_FL1E1hwRQeavTXT99MzMCsDc'
+

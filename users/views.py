@@ -3,7 +3,7 @@ from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from users.forms import profileUpdateForm, userUpdateForm
 from users.models import Profile as Pro
-from users.models import  Kerkesat
+from users.models import  solicitudt
 from django.contrib.auth.models import User
 from django.contrib import messages
 from django.shortcuts import render, get_object_or_404, redirect
@@ -22,8 +22,7 @@ def get_user_membership(request):
 def get_user_subscription(request):
     user_subscription_qs = Subscription.objects.filter(user_membership = get_user_membership(request))
     if user_subscription_qs.exists():
-        user_subscription = user_subscription_qs.first()
-        return user_subscription
+        return user_subscription_qs.first()
     return None
 
 
@@ -37,7 +36,7 @@ def Profile(request):
         if u_form.is_valid() and p_form.is_valid():
             u_form.save()
             p_form.save()
-            messages.success(request, 'Llogaria juaj u perditsua me sukses!')
+            messages.success(request, '¡Tu cuenta ha sido actualizada exitosamente!')
             return redirect('users:profile')
     else:
         u_form = userUpdateForm(instance=request.user)
@@ -52,20 +51,20 @@ def Profile(request):
     return render(request,'profile/profile.html',context)
 
 
-def kerkesa(request):
+def solicitud(request):
     if request.method == 'POST':
-        emri = request.POST.get('name')
+        name = request.POST.get('name')
         email = request.POST.get('e-mail')
         numri_tel = request.POST.get('phone')
         prof = request.user.profile
-        kerkesa = Kerkesat(profili=prof, emri=emri, email=email, numri_tel=numri_tel)
-        kerkesa.save()
+        solicitud = solicitudt(profili=prof, name=name, email=email, numri_tel=numri_tel)
+        solicitud.save()
         prof_id = prof.id
         Pro.objects.filter(id=prof_id).update(is_teacher=True)
         
-        message = 'Kerkesa juaj per nje llogari mesuesi u pranua! Tani ju mund te ktheheni tek MesoOn dhe te ngarkoni kurse dhe leksione, pune te mbare!'
+        message = '¡su solicitud de cuenta de maestro fue aceptada! Ahora puede volver a MesoOn y cargar cursos y conferencias, ¡buen trabajo!'
         send_mail(
-            'MesoOn, kerkesa u pranua.',
+            'MesoOn, solicitud u pranua.',
             message,
             'mesoon@no-reply.com',
             [email],
@@ -73,12 +72,14 @@ def kerkesa(request):
         )
         send_mail(
             'MesoOn',
-            'Dikush beri kerkese per llogari mesuesi. Me info: ' + emri + ' , ' + email + ' , ' + numri_tel + ' , ' + str(prof) + '.',
+            'Alguien hizo una solicitud de cuenta de maestro. Mi información:' + name + ' , ' + email + ' , ' + numri_tel + ' , ' + str(prof) + '.',
             'mesoon@no-reply.com',
             ['redian1marku@gmail.com'],
             fail_silently=False,
         )
-        messages.info(request, f'Kerkesa u dergua me sukses, ju do te njoftoheni me email.')
+        messages.info(
+            request,
+                'La solicitud se envió con éxito, se le notificará por correo electrónico.',)
         return redirect('courses:home')
 
 
