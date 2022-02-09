@@ -6,7 +6,7 @@ from PIL import Image
 class Profile(models.Model):
     user = models.OneToOneField(User,on_delete=models.CASCADE)
     bio = models.CharField(max_length=200, blank=True, null=True)
-    profile_pic = models.ImageField(default='default.png', upload_to = 'profile_pics')
+    profile_pic = models.ImageField(default='default.png',upload_to = 'profile_pics')
     is_teacher = models.BooleanField(default=False)
 
     def __str__(self):
@@ -22,7 +22,7 @@ class Profile(models.Model):
             img.save(self.profile_pic.path)
 
 
-class solicitudt(models.Model):
+class kerkesat(models.Model):
     profili = models.ForeignKey(Profile, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=254)

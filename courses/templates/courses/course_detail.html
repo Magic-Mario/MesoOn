@@ -28,7 +28,7 @@
         <div class="col-lg-10 offset-lg-1">
           <!-- search form -->
           <form method="post" action="{% url 'courses:kerko_kurs' %}" class="intro-newslatter"> {% csrf_token %}
-            <input name="search" type="text" placeholder="Kerko kursin">
+            <input name="search" type="text" placeholder="Buscar curso">
             <button type="submit" class="site-btn btn-dark">Buscar cursos</button>
           </form>
         </div>
@@ -51,7 +51,7 @@
             <div class="course-meta">
               <div class="course-author">
                 <h6>Mesuesi</h6>
-                <p>{{course.creador|capfirst}}, <span>Mesues</span></p>
+                <p>{{course.krijues|capfirst}}, <span>Mesues</span></p>
               </div>
             </div>
             <div class="course-meta">

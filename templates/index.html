@@ -23,7 +23,7 @@
     <div class="row">
       <div class="col-lg-10 offset-lg-1">
         <form method="post" action="{% url 'courses:kerko_kurs' %}" class="intro-newslatter"> {% csrf_token %}
-          <input name="search" type="text" placeholder="Kerko kursin">
+          <input name="search" type="text" placeholder="Buscar curso">
           <button type="submit" class="site-btn">buscar el curso</button>
         </form>
       </div>
@@ -36,9 +36,9 @@
 <section class="categories-section spad">
   <div class="container">
     <div class="section-title">
-      <h2 id="kurset">Categorías y crears</h2>
-      <p>Las lecciones se dividen en diferentes categorías según sus crears y nivel.
-         Primero debes registrarte y luego asistir a la crear a la que perteneces.</p>
+      <h2 id="kurset">Categorías y Clases</h2>
+      <p>Las lecciones se dividen en diferentes categorías según su nivel.
+         Primero debes registrarte y luego asistir a la clase a la que perteneces.</p>
     </div>
     <div class="row">
       {% for cat in category %}
@@ -208,11 +208,11 @@
                luego tendrás acceso completo para subir cursos y videos.</p>
           </div>
           <!-- signup form -->
-          <form action="/solicitud/" method="post" class="signup-form">{% csrf_token %}
-            <input type="text" placeholder="Emri juaj" name="name">
-            <input type="text" placeholder="Emaili" name="e-mail">
-            <input type="text" placeholder="Numri i telefonit" name="phone">
-            <button class="site-btn">Dergo Kerkesen</button>
+          <form action="/kerkesa/" method="post" class="signup-form">{% csrf_token %}
+            <input type="text" placeholder="Nombre" name="name">
+            <input type="text" placeholder="E-mail" name="e-mail">
+            <input type="text" placeholder="Numero de telefono" name="phone">
+            <button class="site-btn">Enviar</button>
           </form>
         </div>
       </div>

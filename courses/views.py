@@ -98,7 +98,7 @@ def krijo_lende(request):
             messages.success(request, 'Su tema fue creado.')
             return redirect('/courses/' + str(slug))
     else:
-        form = LendaForm(initial={'creador':request.user.id, 'slug':secrets.token_hex(nbytes=16)})
+        form = LendaForm(initial={'krijues':request.user.id, 'slug':secrets.token_hex(nbytes=16)})
     context = {
         'form':form
     }

@@ -12,7 +12,7 @@ class Klasa(models.Model):
         return '{}'.format(self.titulli)
 
 class Lendet(models.Model):
-    creador = models.ForeignKey(User,on_delete = models.CASCADE)
+    krijues = models.ForeignKey(User, on_delete = models.CASCADE)
     slug = models.SlugField()
     titulli = models.CharField(max_length=30)
     klasa = models.ForeignKey(Klasa,on_delete=models.CASCADE)
@@ -39,7 +39,7 @@ class Lendet(models.Model):
 class Lesson(models.Model):
     slug = models.SlugField()
     titulli = models.CharField(max_length=30)
-    lenda = models.ForeignKey(Lendet,on_delete=models.CASCADE)
+    lenda = models.ForeignKey(Lendet ,on_delete=models.CASCADE)
     video_id = models.CharField(max_length=11)
     pozicioni = models.IntegerField()
 

@@ -17,7 +17,7 @@ class KlasaForm(forms.ModelForm):
 class LendaForm(forms.ModelForm):
     class Meta:
         model = Lendet
-        fields = ['creador','slug', 'titulli', 'klasa', 'pershkrimi', 'imazhi_lendes']
+        fields = ['krijues','slug', 'titulli', 'klasa', 'pershkrimi', 'imazhi_lendes']
         help_texts = {
             'titulli': 'Ex. Matemáticas, Geografía, etc.',
             'pershkrimi':'Proporcione una breve descripción del tema.',
@@ -27,7 +27,7 @@ class LendaForm(forms.ModelForm):
         labels = {
             'titulli':'Título del tema'
         }
-        widgets = {'creador': forms.HiddenInput(), 'slug': forms.HiddenInput()}
+        widgets = {'krijues': forms.HiddenInput(), 'slug': forms.HiddenInput()}
 
 
 class MesimiForm(forms.ModelForm):

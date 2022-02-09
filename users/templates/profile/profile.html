@@ -42,13 +42,13 @@
            {{ p_form|crispy }}
        </fieldset>
        <div class="form-group">
-           <button class="btn btn-outline-success" type="submit">Perfil</button>
+           <button class="btn btn-outline-success" type="submit">Cambiar</button>
        </div>
    </form>
    {% if request.user.profile.is_teacher == True %}
    <div class="alert alert-info">Tu cuenta tiene acceso completo para maestros.</div>
    {% else %}
-   <div class="alert alert-info">Tu cuenta tiene Accede solo como estudiante.</div>
+   <div class="alert alert-info">Tu cuenta tiene acceso solo como estudiante.</div>
    {% endif %}
 </div>
 </div>
