@@ -53,33 +53,37 @@ def Profile(request):
 
 def kerkesa(request):
     if request.method == 'POST':
-        name = request.POST.get('name')
-        email = request.POST.get('e-mail')
-        numri_tel = request.POST.get('phone')
-        prof = request.user.profile
-        kerkesa = kerkesat(profili=prof, name=name, email=email, numri_tel=numri_tel)
-        kerkesa.save()
-        prof_id = prof.id
-        Pro.objects.filter(id=prof_id).update(is_teacher=True)
-        
-        message = '¡su kerkesa de cuenta de maestro fue aceptada! Ahora puede volver a MesoOn y cargar cursos y conferencias, ¡buen trabajo!'
-        send_mail(
-            'MesoOn, kerkesa u pranua.',
+        return
+    name = request.POST.get('name')
+    email = request.POST.get('e-mail')
+    numri_tel = request.POST.get('phone')
+    prof = request.user.profile
+    solicitud = solicitudt(profili=prof, name=name, email=email, numri_tel=numri_tel)
+    solicitud.save()
+    prof_id = prof.id
+    Pro.objects.filter(id=prof_id).update(is_teacher=True)
+
+    message = '¡su solicitud de cuenta de maestro fue aceptada! Ahora puede volver a MesoOn y cargar cursos y conferencias, ¡buen trabajo!'
+    send_mail(
+            'MesoOn, solicitud aceptada.',
             message,
             'mesoon@no-reply.com',
             [email],
             fail_silently=False,
         )
-        send_mail(
-            'MesoOn',
-            'Alguien hizo una kerkesa de cuenta de maestro. Mi información:' + name + ' , ' + email + ' , ' + numri_tel + ' , ' + str(prof) + '.',
-            'mesoon@no-reply.com',
-            ['redian1marku@gmail.com'],
-            fail_silently=False,
-        )
-        messages.info(
+    send_mail(
+        'MesoOn',
+        f'Alguien hizo una solicitud de cuenta de maestro. Mi información:{name} , {email} , {numri_tel} , '
+        + str(prof)
+        + '.',
+        'mesoon@no-reply.com',
+        ['redian1marku@gmail.com'],
+        fail_silently=False,
+    )
+
+    messages.info(
             request,
-                'La kerkesa se envió con éxito, se le notificará por correo electrónico.',)
-        return redirect('courses:home')
+                'La solicitud se envió con éxito, se le notificará por correo electrónico.',)
+    return redirect('courses:home')
 
 
